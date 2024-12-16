@@ -27,23 +27,28 @@ const initialFriend: FriendType[] = [
 ];
 
 export default function Home() {
+  const [friends, setFriends] = useState<FriendType[]>(initialFriend);
   const [showAddFriend, setShowAddFriend] = useState<boolean>(false);
 
   const handleShowAddFriend = () => {
     setShowAddFriend((showAddFriend) => !showAddFriend);
   };
 
+  const handleAddFriend = (friend: FriendType) => {
+    setFriends((friends) => [...friends, friend]);
+  };
+
   return (
     <main className="container mx-auto px-10 md:px-16 lg:px-20 my-10 flex justify-center">
       <section>
         <div className="flex gap-x-5">
-          <FriendList friends={initialFriend} />
+          <FriendList friends={friends} />
           {/* <FormSplitBill /> */}
         </div>
 
         <div className="flex flex-col items-end w-[350px] md:w-96">
           <div></div>
-          {showAddFriend && <FormAddFriend />}
+          {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
           <button className="button w-32 mt-5" onClick={handleShowAddFriend}>
             {showAddFriend ? "Tutup" : "Tambah Teman"}
           </button>
