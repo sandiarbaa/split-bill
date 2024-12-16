@@ -5,7 +5,7 @@ const Friend = ({ friend }: { friend: FriendType }) => {
   return (
     <li
       key={friend.id}
-      className="border shadow rounded-md p-4 w-96 flex gap-x-5"
+      className="border shadow rounded-md p-4 w-[350px] md:w-96 flex gap-x-5"
     >
       <div>
         <Image src={friend.image} alt={friend.name} width={48} height={48} />

@@ -1,13 +1,33 @@
 const FormAddFriend = () => {
   return (
-    <form action="">
-      <label htmlFor="nama">🙍‍♂️Nama</label>
-      <input type="text" id="nama" />
+    <form
+      action=""
+      className="border shadow rounded-md p-4 mt-5 w-[350px] md:w-96 bg-slate-300"
+    >
+      <div className="flex justify-between">
+        <label htmlFor="nama">🙍‍♂️Nama:</label>
+        <input
+          type="text"
+          id="nama"
+          className="border text-sm shadow rounded-md ml-5 w-52"
+        />
+      </div>
 
-      <label htmlFor="gambar">📸 Gambar</label>
-      <input type="text" id="gambar" />
+      <div className="flex justify-between my-5">
+        <label htmlFor="gambar">📸Gambar:</label>
+        <input
+          type="text"
+          id="gambar"
+          className="border text-sm shadow rounded-md ml-5 w-52"
+        />
+      </div>
 
-      <button type="submit">Tambah</button>
+      <div className="flex justify-between">
+        <div></div>
+        <button type="submit" className="button w-52">
+          Tambah
+        </button>
+      </div>
     </form>
   );
 };
