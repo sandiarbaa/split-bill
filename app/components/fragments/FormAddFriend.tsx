@@ -9,7 +9,7 @@ const FormAddFriend = () => {
         <input
           type="text"
           id="nama"
-          className="border text-sm shadow rounded-md ml-5 w-52"
+          className="border text-sm shadow rounded-md ml-5 w-52 px-2"
         />
       </div>
 
@@ -18,7 +18,7 @@ const FormAddFriend = () => {
         <input
           type="text"
           id="gambar"
-          className="border text-sm shadow rounded-md ml-5 w-52"
+          className="border text-sm shadow rounded-md ml-5 w-52 px-2"
         />
       </div>
 
