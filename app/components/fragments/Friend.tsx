@@ -4,10 +4,14 @@ import Image from "next/image";
 const Friend = ({
   friend,
   onSelected,
+  selectedFriend,
 }: {
   friend: FriendType;
   onSelected: (friend: FriendType) => void;
+  selectedFriend: FriendType | null;
 }) => {
+  const isSelected: boolean = selectedFriend?.id === friend.id;
+
   return (
     <li
       key={friend.id}
@@ -37,11 +41,11 @@ const Friend = ({
           )}
         </div>
         <button
-          className=" bg-slate-500 rounded-md w-14 h-8 text-white font-semibold"
+          className=" bg-slate-500 rounded-md w-20 h-8 text-sm text-white font-semibold hover:bg-slate-600 transition duration-300"
           // butuh anonymous function, karena trigger handler nya butuh parameter untuk dikirim ke handler nya di parent
           onClick={() => onSelected(friend)}
         >
-          Pilih
+          {isSelected ? "Tutup" : "Tambah"}
         </button>
       </div>
     </li>

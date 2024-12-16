@@ -51,10 +51,16 @@ export default function Home() {
     <main className="container mx-auto px-10 md:px-16 lg:px-20 my-10 flex justify-center">
       <section>
         <div className="flex gap-x-5">
-          <FriendList friends={friends} onSelected={handleSelectedFriend} />
+          <FriendList
+            friends={friends}
+            onSelected={handleSelectedFriend}
+            selectedFriend={selectedFriend}
+          />
           {/* kalau state selectedFriend ada data (tidak null), maka tampilkan FormSplitBill */}
           <div className="hidden lg:block">
-            {selectedFriend && <FormSplitBill />}
+            {selectedFriend && (
+              <FormSplitBill selectedFriend={selectedFriend} />
+            )}
           </div>
         </div>
 
@@ -65,7 +71,9 @@ export default function Home() {
             {showAddFriend ? "Tutup" : "Tambah Teman"}
           </button>
           <div className="block lg:hidden mt-5">
-            {selectedFriend && <FormSplitBill />}
+            {selectedFriend && (
+              <FormSplitBill selectedFriend={selectedFriend} />
+            )}
           </div>
         </div>
       </section>

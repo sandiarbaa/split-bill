@@ -1,10 +1,11 @@
-const FormSplitBill = () => {
+import { FriendType } from "@/app/types";
+
+const FormSplitBill = ({ selectedFriend }: { selectedFriend: FriendType }) => {
   return (
-    <form
-      action=""
-      className="w-[350px] md:w-96 h-80 rounded-md border shadow p-8 bg-slate-300"
-    >
-      <h2 className="text-lg font-bold uppercase">Patungan Bareng si X</h2>
+    <form className="w-[350px] md:w-96 h-80 rounded-md border shadow p-8 bg-slate-300">
+      <h2 className="text-lg font-bold uppercase">
+        Patungan Bareng si {selectedFriend.name}
+      </h2>
 
       <div className="mb-3 mt-5">
         <div className="my-3 flex justify-between">
@@ -28,7 +29,7 @@ const FormSplitBill = () => {
         </div>
 
         <div className="my-3 flex justify-between">
-          <label htmlFor="">Tagihan X</label>
+          <label htmlFor="">Tagihan {selectedFriend.name}</label>
           <input
             type="text"
             name=""
@@ -45,7 +46,7 @@ const FormSplitBill = () => {
             className="border rounded w-20 h-7 text-sm px-2"
           >
             <option value="user">Kamu</option>
-            <option value="friend">X</option>
+            <option value="friend">{selectedFriend.name}</option>
           </select>
         </div>
       </div>
