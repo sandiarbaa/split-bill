@@ -1,7 +1,13 @@
 import { FriendType } from "@/app/types";
 import Image from "next/image";
 
-const Friend = ({ friend }: { friend: FriendType }) => {
+const Friend = ({
+  friend,
+  onSelected,
+}: {
+  friend: FriendType;
+  onSelected: (friend: FriendType) => void;
+}) => {
   return (
     <li
       key={friend.id}
@@ -30,7 +36,11 @@ const Friend = ({ friend }: { friend: FriendType }) => {
             <p>Kamu dan {friend.name} tidak ada hutang</p>
           )}
         </div>
-        <button className=" bg-slate-500 rounded-md w-14 h-8 text-white font-semibold">
+        <button
+          className=" bg-slate-500 rounded-md w-14 h-8 text-white font-semibold"
+          // butuh anonymous function, karena trigger handler nya butuh parameter untuk dikirim ke handler nya di parent
+          onClick={() => onSelected(friend)}
+        >
           Pilih
         </button>
       </div>

@@ -2,7 +2,7 @@ const FormSplitBill = () => {
   return (
     <form
       action=""
-      className="w-96 h-80 rounded-md border shadow p-8 bg-slate-300"
+      className="w-[350px] md:w-96 h-80 rounded-md border shadow p-8 bg-slate-300"
     >
       <h2 className="text-lg font-bold uppercase">Patungan Bareng si X</h2>
 
