@@ -4,6 +4,7 @@ import FormAddFriend from "./components/fragments/FormAddFriend";
 import FormSplitBill from "./components/fragments/FormSplitBill";
 import FriendList from "./components/fragments/FriendList";
 import { FriendType } from "./types";
+import Navbar from "./components/fragments/Navbar";
 
 const initialFriend: FriendType[] = [
   {
@@ -65,41 +66,44 @@ export default function Home() {
   };
 
   return (
-    <main className="container mx-auto px-10 md:px-16 lg:px-20 my-10 flex justify-center">
-      <section>
-        <div className="flex gap-x-5">
-          <FriendList
-            friends={friends}
-            onSelected={handleSelectedFriend}
-            selectedFriend={selectedFriend}
-          />
-          {/* kalau state selectedFriend ada data (tidak null), maka tampilkan FormSplitBill */}
-          <div className="hidden lg:block">
-            {selectedFriend && (
-              <FormSplitBill
-                selectedFriend={selectedFriend}
-                onSplitBill={handleSplitBill}
-              />
-            )}
+    <>
+      <Navbar />
+      <main className="container mx-auto px-10 md:px-16 lg:px-20 my-10 flex justify-center">
+        <section>
+          <div className="flex gap-x-5">
+            <FriendList
+              friends={friends}
+              onSelected={handleSelectedFriend}
+              selectedFriend={selectedFriend}
+            />
+            {/* kalau state selectedFriend ada data (tidak null), maka tampilkan FormSplitBill */}
+            <div className="hidden lg:block">
+              {selectedFriend && (
+                <FormSplitBill
+                  selectedFriend={selectedFriend}
+                  onSplitBill={handleSplitBill}
+                />
+              )}
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col items-end w-[350px] md:w-96">
-          <div></div>
-          {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
-          <button className="button w-32 mt-5" onClick={handleShowAddFriend}>
-            {showAddFriend ? "Tutup" : "Tambah Teman"}
-          </button>
-          <div className="block lg:hidden mt-5">
-            {selectedFriend && (
-              <FormSplitBill
-                selectedFriend={selectedFriend}
-                onSplitBill={handleSplitBill}
-              />
-            )}
+          <div className="flex flex-col items-end w-[350px] md:w-96">
+            <div></div>
+            {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
+            <button className="button w-32 mt-5" onClick={handleShowAddFriend}>
+              {showAddFriend ? "Tutup" : "Tambah Teman"}
+            </button>
+            <div className="block lg:hidden mt-5">
+              {selectedFriend && (
+                <FormSplitBill
+                  selectedFriend={selectedFriend}
+                  onSplitBill={handleSplitBill}
+                />
+              )}
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }
